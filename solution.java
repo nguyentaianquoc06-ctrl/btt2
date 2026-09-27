@@ -1,23 +1,20 @@
-package Palindrome;
+package finacio;
 
 import java.util.Scanner;
 
 public class solution {
-
 	public static void main(String[] args) {
-
 		Scanner scan = new Scanner(System.in);
-		int a = scan.nextInt();
-		int d = a;
-		int b;
-		int c = 0;
-		while (a != 0) {
-			b = a % 10;
-			c = c * 10 + b;
-			a = a / 10;
+		int t = scan.nextInt();
+		int f1 = 0;
+		int f2 = 1;
+		int fn = 0;
+		for (int i = 1; i <= t; i++) {
+			fn = f1 + f2;
+			f1 = f2;
+			f2 = fn;
 		}
-		if (d == c) {
-			System.out.println("hop ly");
-		}
+		System.out.println(fn);
 	}
+
 }
