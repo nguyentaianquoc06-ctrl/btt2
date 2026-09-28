@@ -1,25 +1,25 @@
-package Ucln;
+package sumdigits;
 
 import java.util.Scanner;
 
 public class Solution {
-	public static int gcd(int a, int b) {
-		int temp = 0;
-		for (int i = b; i > 0; i--) {
-			if (a % i == 0 && b % i == 0) {
-				temp = i;
-				break;
-			}
+	public int sumOfDigits(int n) {
+		if (n < 0) {
+			n = -n;
 		}
-		return temp;
+		int sum = 0;
+		while (n != 0) {
+			int digit = n % 10;
+			sum = sum + digit;
+			n = n / 10;
+		}
+		return sum;
 	}
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		int a = scan.nextInt();
-		int b = scan.nextInt();
-		int ucln = gcd(a, b);
-		System.out.println(ucln);
-		scan.close();
+		int n = scan.nextInt();
+		Solution s = new Solution();
+		System.out.println(s.sumOfDigits(n));
 	}
 }
